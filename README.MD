@@ -18,6 +18,9 @@ Gilson Garcia
 #### Créditos
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
 - [Last.fm API](https://www.last.fm/api)
+- [React.js](https://react.dev/)
+- [Bootstrap](https://react-bootstrap.github.io/)
+- [ChatGPT](https://openai.com/blog/chatgpt)
 
 #### Bastidores
 
