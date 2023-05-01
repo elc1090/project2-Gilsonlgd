@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Artist from "./Views/Artists/Artist";
@@ -11,8 +11,15 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<App key="home" />}></Route>
-        <Route path="/artist" element={<Artist key="artist" />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<App key={() => useLocation().pathname} />}
+        ></Route>
+        <Route
+          path="/artist/:id"
+          element={<Artist key={() => useLocation().pathname} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

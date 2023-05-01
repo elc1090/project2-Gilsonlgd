@@ -15,7 +15,7 @@
 
 .App-header {
   background: linear-gradient(to bottom, #1db954, #282c34);
-  min-height: 250px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -67,7 +67,12 @@
 }
 
 .opacity-enter {
-  animation: opacity-in 0.5s ease forwards;
+  animation: opacity-in 1s ease forwards;
+}
+
+.text-enter-header {
+  opacity: 0;
+  animation: text-in 1s ease forwards;
 }
 
 @keyframes App-logo-spin {
@@ -85,6 +90,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes text-in {
+  from {
+    opacity: 0;
+    transform: translateX(3em);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

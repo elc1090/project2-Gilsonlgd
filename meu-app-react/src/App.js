@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./App.css";
@@ -17,19 +17,25 @@ function App() {
 
   const [searchValue, setSearchValue] = useState(artistName);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   function loadArtists() {
     setArtistName(searchValue);
   }
 
   function handleSelectArtist(artist) {
-    navigate(`/artist`, { state: { ...artist, searchValue: String(searchValue) } });
+    navigate(`/artist/${artist.id}`, {
+      state: { ...artist, searchValue: String(searchValue) },
+    });
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="d-flex inline-block row opacity-enter">
-          <h1 className="text-lg">Spotify</h1>
+        <div className="d-flex inline-block row">
+          <h1 className="text-lg opacity-enter">Spotify</h1>
         </div>
         <div className="row mt-2">
           <div className="d-flex col-12 justify-content-center opacity-enter">

@@ -14,8 +14,11 @@ function Artist() {
   const [artistInfos, setArtistInfos] = useState({});
   const [isMounted, setIsMounted] = useState(false);
   const artist = state;
+  const defaultProfileImg =
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchArtist = async () => {
       // Define as credenciais de autenticação
       const clientId = "91f578b4599f454ea3914e927f4e3f3a";
@@ -86,9 +89,11 @@ function Artist() {
     fetchArtist();
   }, []);
 
-  function loadArtist() {}
-
-  function handleSelectArtist(artist) {}
+  function handleSelectArtist(artist) {
+    navigate(`/artist/${artist.id}`, {
+      state: { ...artist, searchValue: String(state.searchValue) },
+    });
+  }
 
   function handleDirectHome(artistToRedirect) {
     console.log("aqui");
@@ -176,7 +181,35 @@ function Artist() {
               </div>
             </div>
 
-            <div></div>
+            <div className="row">
+              <div className="col-12 mb-4">
+                <div className="related-artists-container text-white">
+                  <h3>Artistas Relacionados</h3>
+                  <div className="row">
+                    {artistInfos.relatedArtists.slice(0, 6).map((artist) => (
+                      <div
+                        className="d-flex col-12 col-md-6 col-lg-4 col-xxl-2"
+                        key={artist.id}
+                      >
+                        <div className="related-artist-card">
+                          <img
+                            className={`profile-md-img mt-3 mb-3 ${
+                              !artist.images.length ? "low-brightness" : ""
+                            }`}
+                            src={
+                              artist.images.length
+                                ? artist.images[0].url
+                                : defaultProfileImg
+                            }
+                          ></img>
+                          <h4>{artist.name}</h4>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="row">
               <div className="col-12 col-lg-6 mb-4">

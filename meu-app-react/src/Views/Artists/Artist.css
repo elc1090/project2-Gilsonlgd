@@ -1,5 +1,6 @@
 .Artist {
   background-color: #121212;
+  height: 100%;
 }
 
 .Artist-header {
@@ -22,11 +23,38 @@
   background-color: #121212;
   display: flex;
   height: 100%;
-  min-height: 100em;
+  min-height: 50em;
   padding: 2em;
   font-family: "Circular", sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.related-artist-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: #181818;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  padding: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.related-artist-card:hover {
+  background-color: #282828;
+  cursor: pointer;
+}
+
+.profile-md-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .info-container {
@@ -35,6 +63,15 @@
   width: 100%;
   background-color: #181818;
   padding: 30px;
+  border-radius: 10px;
+  animation: container-in 1s ease forwards;
+}
+
+.related-artists-container {
+  width: 100%;
+  background-color: #181818;
+  padding: 30px;
+  padding-bottom: 10px;
   border-radius: 10px;
   animation: container-in 1s ease forwards;
 }
