@@ -1,0 +1,42 @@
+.bounce {
+  animation: bounce-animation 0.2s ease forwards;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover {
+  animation: scale-animation 0.2s ease forwards;
+}
+
+.unhover {
+  animation: shrink-animation 0.2s ease forwards;
+}
+
+@keyframes scale-animation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shrink-animation {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-animation {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

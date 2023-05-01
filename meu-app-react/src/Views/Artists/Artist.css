@@ -1,0 +1,176 @@
+.Artist {
+  background-color: #121212;
+}
+
+.Artist-header {
+  background-size: "cover";
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  font-family: "Circular", sans-serif;
+  font-weight: bold;
+  padding: 1em;
+  padding-left: 2em;
+  box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+}
+
+.Artist-body {
+  background-color: #121212;
+  display: flex;
+  height: 100%;
+  min-height: 100em;
+  padding: 2em;
+  font-family: "Circular", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #181818;
+  padding: 30px;
+  border-radius: 10px;
+  animation: container-in 1s ease forwards;
+}
+
+.header-title {
+  margin-top: 0.5em;
+  animation: text-in 1s ease;
+}
+
+.header-subtitle {
+  opacity: 0;
+  margin-top: -1em;
+  animation: text-in 0.7s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.text-enter {
+  opacity: 0;
+  animation: text-in 0.7s ease forwards;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.green-spotify {
+  color: #1db954;
+}
+
+.text-lg {
+  font-size: 4em;
+}
+
+.text-md {
+  font-size: 3em;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-align-right {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.number-box {
+  display: inline-block;
+  width: 8em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.home-btn {
+  margin-top: 2em;
+}
+
+.track-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  margin-top: calc(0.3em - (100vw - 1200px) / 100 * 2);
+}
+
+.index-box {
+  width: 20px;
+}
+
+.image-box {
+  margin-left: 1em;
+  width: 80px;
+  height: 80px;
+}
+
+.name-box {
+  width: 50%;
+  height: fit-content;
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.album-box {
+  width: 50%;
+  height: fit-content;
+  display: inline-block;
+  margin-left: 3em;
+}
+
+.duration-box {
+  width: 10%;
+  height: fit-content;
+  display: inline-block;
+  margin-left: 3em;
+}
+
+.sub-info {
+  color: #949494;
+}
+
+.image-box img {
+  width: 50px; /* defina a largura da imagem como 100% */
+  height: 50px; /* defina a altura da imagem como 100% */
+  transform: translateY(15px);
+  object-fit: cover; /* para que a imagem cubra completamente o contêiner */
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-in {
+  from {
+    opacity: 0;
+    transform: translateX(3em);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes container-in {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-color: #121212;
 }
 
 .App-logo {
@@ -14,18 +14,60 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: linear-gradient(to bottom, #1db954, #282c34);
+  min-height: 250px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  justify-content: center;
+  text-align: center;
+  font-family: "Circular", sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+}
+
+.App-body {
+  background-color: #121212;
+  height: 100%;
+  min-height: 100em;
+  font-family: "Circular", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.row .body-title {
+  color: white;
+  margin-top: 1em;
+  margin-left: 2em;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.green-spotify {
+  color: #1db954;
+}
+
+.text-lg {
+  font-size: 4em;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.App-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.opacity-enter {
+  animation: opacity-in 0.5s ease forwards;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +77,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes opacity-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.teste {
+  margin-left: 20px;
 }
