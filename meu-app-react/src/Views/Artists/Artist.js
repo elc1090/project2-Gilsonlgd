@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import IconButton from "../../Components/IconButton/IconButton";
