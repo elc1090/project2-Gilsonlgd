@@ -67,30 +67,43 @@
   animation: container-in 1s ease forwards;
 }
 
+.info-enter{
+  animation: container-in 1s ease forwards;
+}
+
+.info-leave {
+  animation: container-out 0.5s ease forwards;
+}
+
 .related-artists-container {
   width: 100%;
   background-color: #181818;
   padding: 30px;
   padding-bottom: 10px;
   border-radius: 10px;
-  animation: container-in 1s ease forwards;
 }
 
 .header-title {
   margin-top: 0.5em;
-  animation: text-in 1s ease;
 }
 
 .header-subtitle {
   opacity: 0;
   margin-top: -1em;
-  animation: text-in 0.7s ease forwards;
   animation-delay: 0.3s;
 }
 
 .text-enter {
   opacity: 0;
-  animation: text-in 0.7s ease forwards;
+  animation: text-in 1s ease forwards;
+}
+
+.text-leave {
+  animation: container-out 0.5s ease forwards;
+}
+
+.item-out {
+  animation: container-out 0.7s ease forwards;
 }
 
 .App-link {
@@ -212,23 +225,35 @@
   }
 }
 
+@keyframes container-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @font-face {
   font-family: "Circular";
-  src: url("../../../public/fonts/Circular/CircularStd-Bold.otf") format("truetype");
+  src: url("../../../public/fonts/Circular/CircularStd-Bold.otf")
+    format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Circular";
-  src: url("../../../public/fonts/Circular/CircularStd-Book.otf") format("truetype");
+  src: url("../../../public/fonts/Circular/CircularStd-Book.otf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Circular";
-  src: url("../../../public/fonts/Circular/CircularStd-Medium.otf") format("truetype");
+  src: url("../../../public/fonts/Circular/CircularStd-Medium.otf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }

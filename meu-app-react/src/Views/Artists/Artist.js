@@ -13,7 +13,10 @@ function Artist() {
   const navigate = useNavigate();
   const [artistInfos, setArtistInfos] = useState({});
   const [isMounted, setIsMounted] = useState(false);
-  let artist = state;
+  const [artist, setArtist] = useState({ ...state });
+  const [loadingArtist, setLoadingArtist] = useState(false);
+  const [changingHeader, setChangingHeader] = useState(false);
+
   const defaultProfileImg =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
@@ -89,7 +92,23 @@ function Artist() {
     fetchArtist();
   }, [artist.id, artist.name]);
 
+  window.addEventListener("popstate", function (event) {
+    window.location.reload(true);
+  });
+
   function handleSelectArtist(relatedArtist) {
+    setLoadingArtist(true);
+    setChangingHeader(true);
+
+    setTimeout(() => {
+      setArtist(relatedArtist);
+      setChangingHeader(false);
+    }, 400);
+
+    setTimeout(() => {
+      setLoadingArtist(false);
+    }, 1600);
+
     navigate(`/artist/${relatedArtist.id}`, {
       state: { ...relatedArtist, searchValue: String(state.searchValue) },
     });
@@ -125,13 +144,23 @@ function Artist() {
     return `${minutes}:${seconds}`;
   }
 
+  function getHeaderTextClass() {
+    if (changingHeader) return "text-leave";
+    else return "text-enter";
+  }
+
+  function getContainerClass() {
+    if (loadingArtist) return "info-leave";
+    else return "info-enter";
+  }
+
   return (
     <div className="Artist">
       <header
         className="Artist-header"
         style={{
           backgroundImage: ` ${
-            artist.images[0]
+            artist?.images[0]
               ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(${artist?.images[0].url})`
               : "linear-gradient(to bottom, #1db954, #282c34)"
           }`,
@@ -143,14 +172,17 @@ function Artist() {
             onClick={() => handleDirectHome(artist?.searchValue)}
           />
         </div>
+
         <div className="d-flex inline-block row">
-          <h1 className="header-title text-md">{artist?.name} </h1>
+          <h1 className={`header-title text-md ${getHeaderTextClass()}`}>
+            {artist?.name}{" "}
+          </h1>
         </div>
         <div className="row mt-2">
           <div className="d-flex col-12">
-            <h3 className="header-subtitle">{`${transformNumber(
-              artist?.followers.total
-            )} seguidores`}</h3>
+            <h3
+              className={`header-subtitle ${getHeaderTextClass()}`}
+            >{`${transformNumber(artist?.followers.total)} seguidores`}</h3>
           </div>
         </div>
       </header>
@@ -160,7 +192,9 @@ function Artist() {
           <div className="full-width">
             <div className="row">
               <div className="col-12 mb-4">
-                <div className="info-container text-white">
+                <div
+                  className={`info-container text-white ${getContainerClass()}`}
+                >
                   <h3>Top Tracks no Brasil</h3>
                   {artistInfos.topTracks.slice(0, 5).map((track, index) => (
                     <div className="track-container" key={track.id}>
@@ -187,7 +221,9 @@ function Artist() {
 
             <div className="row">
               <div className="col-12 mb-4">
-                <div className="related-artists-container text-white">
+                <div
+                  className={`related-artists-container text-white ${getContainerClass()}`}
+                >
                   <h3>Artistas Relacionados</h3>
                   {!artistInfos.relatedArtists.length ? (
                     <p>Não há informações sobre artistas relacionados.</p>
@@ -195,7 +231,7 @@ function Artist() {
                     ""
                   )}
                   <div className="row">
-                    {artistInfos.relatedArtists.slice(0, 6).map((artist) => (
+                    {artistInfos?.relatedArtists.slice(0, 6).map((artist) => (
                       <div
                         className="d-flex col-12 col-md-6 col-lg-4 col-xxl-2"
                         key={artist.id}
@@ -226,7 +262,9 @@ function Artist() {
 
             <div className="row">
               <div className="col-12 col-lg-6 mb-4">
-                <div className="info-container text-white">
+                <div
+                  className={`info-container text-white ${getContainerClass()}`}
+                >
                   <h3>Stats</h3>
                   <h5>
                     <span className="number-box green-spotify">
