@@ -1,4 +1,4 @@
-![Screenshot do projeto](screenshot.png "Screenshot do projeto").
+![Screenshot do projeto](printScreen.png "Screenshot do projeto").
 
 
 #### Daploy
