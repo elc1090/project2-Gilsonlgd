@@ -1,9 +1,9 @@
 ![Screenshot do projeto](printScreen.png "Screenshot do projeto").
 
 
-#### Daploy
+#### Deploy
 
-https://elc1090.github.io/project2a-gilson-e-roberto/
+https://spotifyartistsearches.netlify.app/
 
 
 #### Desenvolvedor
