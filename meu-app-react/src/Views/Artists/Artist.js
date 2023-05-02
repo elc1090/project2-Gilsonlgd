@@ -10,7 +10,6 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 function Artist() {
   const { state } = useLocation();
-  const { id } = useParams();
   const navigate = useNavigate();
   const [artistInfos, setArtistInfos] = useState({});
   const [isMounted, setIsMounted] = useState(false);
@@ -88,7 +87,7 @@ function Artist() {
     };
     // Atualiza o estado com os artistas encontrados
     fetchArtist();
-  }, []);
+  }, [artist.id, artist.name]);
 
   function handleSelectArtisttt(relatedArtist) {
     navigate(`/project2-Gilsonlgd/artist/${relatedArtist.id}`, {
@@ -98,7 +97,9 @@ function Artist() {
   }
 
   function handleDirectHome(artistToRedirect) {
-    navigate("/project2-Gilsonlgd", { state: { artistName: artistToRedirect } });
+    navigate("/project2-Gilsonlgd", {
+      state: { artistName: artistToRedirect },
+    });
   }
 
   function transformNumber(number) {
@@ -167,7 +168,10 @@ function Artist() {
                       <span className="index-box">{index + 1}</span>
                       <span className="image-box">
                         {" "}
-                        <img src={track.album.images[0].url}></img>
+                        <img
+                          src={track.album.images[0].url}
+                          alt="Capa do álbum da música"
+                        ></img>
                       </span>
                       <span className="name-box">{track.name}</span>
                       <span className="album-box d-none d-lg-block">
@@ -205,6 +209,7 @@ function Artist() {
                             className={`profile-md-img mt-3 mb-3 ${
                               !artist.images.length ? "low-brightness" : ""
                             }`}
+                            alt="Foto de Perfil do Artista"
                             src={
                               artist.images.length
                                 ? artist.images[0].url

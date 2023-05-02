@@ -83,6 +83,7 @@ const SearchArtists = ({ artistName, onClick }) => {
                   className={`profile-img mt-3 ${
                     !artist.images.length ? "low-brightness" : ""
                   }`}
+                  alt="Foto de Perfil do Artista"
                   src={
                     artist.images.length
                       ? artist.images[0].url
