@@ -18,19 +18,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={<App key={() => useLocation().pathname} />}
-        ></Route>
-        <Route
-          path="/artist/:id"
-          element={<Artist />}
-        ></Route>
-        <Route
-          path="/artist/"
-          element={<Artist />}
-        ></Route>
+        <Route exact path="/project2-Gilsonlgd">
+          <Route exact path="" element={<App />}></Route>
+          <Route path="artist/:id" element={<Artist />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

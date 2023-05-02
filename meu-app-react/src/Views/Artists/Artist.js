@@ -91,14 +91,14 @@ function Artist() {
   }, []);
 
   function handleSelectArtisttt(relatedArtist) {
-    navigate(`/artist/${relatedArtist.id}`, {
+    navigate(`/project2-Gilsonlgd/artist/${relatedArtist.id}`, {
       state: { ...relatedArtist, searchValue: String(state.searchValue) },
     });
     navigate(0);
   }
 
   function handleDirectHome(artistToRedirect) {
-    navigate("/", { state: { artistName: artistToRedirect } });
+    navigate("/project2-Gilsonlgd", { state: { artistName: artistToRedirect } });
   }
 
   function transformNumber(number) {
