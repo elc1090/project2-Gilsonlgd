@@ -14,8 +14,7 @@ function Artist() {
   const navigate = useNavigate();
   const [artistInfos, setArtistInfos] = useState({});
   const [isMounted, setIsMounted] = useState(false);
-  let artist = {};
-  artist = state;
+  const artist = state;
   const defaultProfileImg =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
@@ -95,6 +94,7 @@ function Artist() {
     navigate(`/artist/${relatedArtist.id}`, {
       state: { ...relatedArtist, searchValue: String(state.searchValue) },
     });
+    navigate(0);
   }
 
   function handleDirectHome(artistToRedirect) {
