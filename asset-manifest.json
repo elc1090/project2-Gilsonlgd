@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/project2-Gilsonlgd/static/css/main.5fb8f72b.css",
+    "main.js": "/project2-Gilsonlgd/static/js/main.21fa7977.js",
+    "static/js/787.9a38f6f0.chunk.js": "/project2-Gilsonlgd/static/js/787.9a38f6f0.chunk.js",
+    "static/media/fa-solid-900.ttf": "/project2-Gilsonlgd/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/fa-brands-400.ttf": "/project2-Gilsonlgd/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/fa-solid-900.woff2": "/project2-Gilsonlgd/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/fa-brands-400.woff2": "/project2-Gilsonlgd/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/CircularStd-Bold.otf": "/project2-Gilsonlgd/static/media/CircularStd-Bold.5c4514a8399ec0064b9b.otf",
+    "static/media/CircularStd-Medium.otf": "/project2-Gilsonlgd/static/media/CircularStd-Medium.9ffafeddf192e8c8a111.otf",
+    "static/media/CircularStd-Book.otf": "/project2-Gilsonlgd/static/media/CircularStd-Book.9048137056e4347dbbd5.otf",
+    "static/media/fa-regular-400.ttf": "/project2-Gilsonlgd/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/fa-regular-400.woff2": "/project2-Gilsonlgd/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/fa-v4compatibility.ttf": "/project2-Gilsonlgd/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/project2-Gilsonlgd/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "index.html": "/project2-Gilsonlgd/index.html",
+    "main.5fb8f72b.css.map": "/project2-Gilsonlgd/static/css/main.5fb8f72b.css.map",
+    "main.21fa7977.js.map": "/project2-Gilsonlgd/static/js/main.21fa7977.js.map",
+    "787.9a38f6f0.chunk.js.map": "/project2-Gilsonlgd/static/js/787.9a38f6f0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fb8f72b.css",
+    "static/js/main.21fa7977.js"
+  ]
+}
