@@ -87,6 +87,7 @@ function Artist() {
         topTracks: topTracks,
       });
       setIsMounted(true);
+      setLoadingArtist(false);
     };
     // Atualiza o estado com os artistas encontrados
     fetchArtist();
@@ -104,10 +105,6 @@ function Artist() {
       setArtist(relatedArtist);
       setChangingHeader(false);
     }, 400);
-
-    setTimeout(() => {
-      setLoadingArtist(false);
-    }, 1600);
 
     navigate(`/artist/${relatedArtist.id}`, {
       state: { ...relatedArtist, searchValue: String(state.searchValue) },
