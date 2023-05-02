@@ -26,7 +26,7 @@ function Artist() {
       const tokenUrl = "https://accounts.spotify.com/api/token";
 
       const LASTFM_API_KEY = "3b07a72c43a1e0709fb61d5f90a2bc8f";
-      const LASTFM_API_BASE_URL = "http://ws.audioscrobbler.com/2.0/";
+      const LASTFM_API_BASE_URL = "https://ws.audioscrobbler.com/2.0/";
 
       // Obtém um token de acesso válido da API do Spotify
       const getToken = async () => {
