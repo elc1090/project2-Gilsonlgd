@@ -26,7 +26,7 @@ function App() {
   }
 
   function handleSelectArtist(artist) {
-    navigate(`/project2-Gilsonlgd/artist/${artist.id}`, {
+    navigate(`/artist/${artist.id}`, {
       state: { ...artist, searchValue: String(searchValue) },
     });
   }

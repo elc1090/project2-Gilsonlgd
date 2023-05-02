@@ -90,14 +90,14 @@ function Artist() {
   }, [artist.id, artist.name]);
 
   function handleSelectArtisttt(relatedArtist) {
-    navigate(`/project2-Gilsonlgd/artist/${relatedArtist.id}`, {
+    navigate(`/artist/${relatedArtist.id}`, {
       state: { ...relatedArtist, searchValue: String(state.searchValue) },
     });
     navigate(0);
   }
 
   function handleDirectHome(artistToRedirect) {
-    navigate("/project2-Gilsonlgd", {
+    navigate("/", {
       state: { artistName: artistToRedirect },
     });
   }

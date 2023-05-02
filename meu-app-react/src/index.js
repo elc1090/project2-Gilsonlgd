@@ -12,10 +12,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/project2-Gilsonlgd">
-          <Route exact path="" element={<App />}></Route>
-          <Route path="artist/:id" element={<Artist />}></Route>
-        </Route>
+        <Route exact path="/" element={<App />}></Route>
+        <Route path="artist/:id" element={<Artist />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
