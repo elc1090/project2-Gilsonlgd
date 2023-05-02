@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
 import IconButton from "../../Components/IconButton/IconButton";
@@ -10,10 +10,12 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 function Artist() {
   const { state } = useLocation();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [artistInfos, setArtistInfos] = useState({});
   const [isMounted, setIsMounted] = useState(false);
-  const artist = state;
+  let artist = {};
+  artist = state;
   const defaultProfileImg =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
 
@@ -53,7 +55,7 @@ function Artist() {
       let data = await response.json();
       const relatedArtists = data.artists;
 
-      // Utiliza o endpoint de pesquisa da API do Spotify para pesquisar os artistas
+      // Utiliza o endpoint de pesquisa da API do Spotify para pesquisar as músicas mais populares
       searchUrl = `https://api.spotify.com/v1/artists/${artist.id}/top-tracks?market=BR`;
       response = await fetch(searchUrl, {
         headers: {
@@ -89,14 +91,13 @@ function Artist() {
     fetchArtist();
   }, []);
 
-  function handleSelectArtist(artist) {
-    navigate(`/artist/${artist.id}`, {
-      state: { ...artist, searchValue: String(state.searchValue) },
+  function handleSelectArtisttt(relatedArtist) {
+    navigate(`/artist/${relatedArtist.id}`, {
+      state: { ...relatedArtist, searchValue: String(state.searchValue) },
     });
   }
 
   function handleDirectHome(artistToRedirect) {
-    console.log("aqui");
     navigate("/", { state: { artistName: artistToRedirect } });
   }
 
@@ -131,7 +132,7 @@ function Artist() {
         style={{
           backgroundImage: ` ${
             artist.images[0]
-              ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(${artist.images[0].url})`
+              ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(${artist?.images[0].url})`
               : "linear-gradient(to bottom, #1db954, #282c34)"
           }`,
         }}
@@ -139,16 +140,16 @@ function Artist() {
         <div className="home-btn green-spotify">
           <IconButton
             icon={"fas fa-arrow-left fa-xl"}
-            onClick={() => handleDirectHome(artist.searchValue)}
+            onClick={() => handleDirectHome(artist?.searchValue)}
           />
         </div>
         <div className="d-flex inline-block row">
-          <h1 className="header-title text-md">{artist.name} </h1>
+          <h1 className="header-title text-md">{artist?.name} </h1>
         </div>
         <div className="row mt-2">
           <div className="d-flex col-12">
             <h3 className="header-subtitle">{`${transformNumber(
-              artist.followers
+              artist?.followers.total
             )} seguidores`}</h3>
           </div>
         </div>
@@ -185,13 +186,21 @@ function Artist() {
               <div className="col-12 mb-4">
                 <div className="related-artists-container text-white">
                   <h3>Artistas Relacionados</h3>
+                  {!artistInfos.relatedArtists.length ? (
+                    <p>Não há informações sobre artistas relacionados.</p>
+                  ) : (
+                    ""
+                  )}
                   <div className="row">
                     {artistInfos.relatedArtists.slice(0, 6).map((artist) => (
                       <div
                         className="d-flex col-12 col-md-6 col-lg-4 col-xxl-2"
                         key={artist.id}
                       >
-                        <div className="related-artist-card">
+                        <div
+                          className="related-artist-card"
+                          onClick={() => handleSelectArtisttt(artist)}
+                        >
                           <img
                             className={`profile-md-img mt-3 mb-3 ${
                               !artist.images.length ? "low-brightness" : ""

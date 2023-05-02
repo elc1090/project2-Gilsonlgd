@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useParams } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Artist from "./Views/Artists/Artist";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -18,12 +19,13 @@ root.render(
         ></Route>
         <Route
           path="/artist/:id"
-          element={<Artist key={() => useLocation().pathname} />}
+          element={<Artist key={() => useParams().id}/>}
         ></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

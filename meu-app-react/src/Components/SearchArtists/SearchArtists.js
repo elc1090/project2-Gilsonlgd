@@ -42,20 +42,10 @@ const SearchArtists = ({ artistName, onClick }) => {
         },
       });
       const data = await response.json();
+      console.log(data);
 
       // Extrai as informações relevantes dos artistas encontrados
-      const artists = data.artists.items.map((item) => {
-        return {
-          name: item.name,
-          url: item.external_urls.spotify,
-          images: item.images,
-          popularity: item.popularity,
-          genres: item.genres,
-          followers: item.followers.total,
-          id: item.id,
-          href: item.href 
-        };
-      });
+      const artists = [...data.artists.items]
       setArtistsKey(uuid());
       setArtists(artists);
     };
@@ -103,7 +93,7 @@ const SearchArtists = ({ artistName, onClick }) => {
               <div className="d-flex col-12 align-items-center flex-column text-white mb-3">
                 <h3>{artist.name}</h3>
                 <p className="sub-info">
-                  {transformNumber(artist.followers) + " seguidores"}
+                  {transformNumber(artist.followers.total) + " seguidores"}
                 </p>
               </div>
               <div className="d-flex col-12 align-items-center flex-column text-white">
