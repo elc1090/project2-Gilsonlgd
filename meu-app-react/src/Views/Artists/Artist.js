@@ -282,7 +282,9 @@ function Artist() {
                 </div>
               </div>
               <div className="col-12 col-lg-6">
-                <div className="info-container text-white">
+                <div
+                  className={`info-container text-white ${getContainerClass()}`}
+                >
                   <h3>Biografia</h3>
                   <p className="text">
                     {getArtistBio(artistInfos.infos?.artist.bio.content)}
